@@ -100,5 +100,6 @@
   img {
     height: 5rem;
     width: 5rem;
+    border-radius: 4px;
   }
 </style>
