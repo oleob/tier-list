@@ -8,7 +8,7 @@
 </script>
 
 <div use:move={{ id: entry.id, tier }} draggable={editable}>
-  <img draggable="false" src="contestants/{entry.id}.webp" alt={entry.name} />
+  <img draggable="false" src="/contestants/{entry.id}.webp" alt={entry.name} />
   <p>{entry.name}</p>
 </div>
 

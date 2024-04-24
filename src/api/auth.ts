@@ -8,6 +8,5 @@ export const initAuth = () => {
     if (!user) {
       signInWithRedirect(auth, provider);
     }
-    console.log(user);
   });
 };

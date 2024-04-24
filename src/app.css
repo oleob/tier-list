@@ -5,12 +5,24 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+:root {
+  --color-grey: #2e3440; /* Used for the navigation bar and footer */
+  --color-white: #eceff4; /* Text color for high contrast on dark backgrounds */
+  --color-blue: #5e81ac; /* For section titles and other highlights */
+  --color-blue-2: #4c566a; /* Background color for the tier list cards */
+  --color-periwinkle: #d8dee9; /* Main background color, soft and light */
+  --color-green: #a3be8c; /* For buttons and interactive elements */
+}
+html {
+  background-color: var(--color-grey);
+  color: var(--color-white);
 }
 
 /*
@@ -93,4 +105,38 @@ li {
 
 a {
   text-decoration: none;
+  color: inherit;
+}
+
+button {
+  padding: 12px 16px;
+  color: white;
+  background-color: transparent;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button.primary {
+  background-color: var(--color-blue);
+  color: var(--color-white);
+  transition: all 0.1s ease-in-out;
+}
+button.secondary {
+  background-color: transparent;
+  color: var(--color-white);
+}
+
+button:hover {
+  filter: contrast(150%);
+}
+
+button:active {
+  transform: scale(0.95);
+  filter: contrast(50%);
+}
+
+button:disabled {
+  opacity: 0.75;
+  cursor: not-allowed;
 }

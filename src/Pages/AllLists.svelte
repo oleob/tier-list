@@ -1,34 +1,15 @@
 <script lang="ts">
-  import { collection, getDocs } from "firebase/firestore";
-  import { db } from "../api/firestore";
-  import TierList from "../components/TierList.svelte";
   import { link } from "svelte-spa-router";
   import { onMount } from "svelte";
-
-  const listRef = collection(db, "tier-lists");
-  let list: Array<{ id: string; name: string; img: string; list: TierList }> =
-    [];
-
-  const fetchLists = async () => {
-    const docs = await getDocs(listRef);
-    const tempList: typeof list = [];
-
-    docs.forEach((doc) => {
-      const data = doc.data() as { name: string; img: string; list: TierList };
-      console.log(data);
-      tempList.push({ id: doc.id, ...data });
-      console.log(data);
-    });
-    list = tempList;
-  };
+  import { allListsStore } from "../stores/allListsStore";
 
   onMount(() => {
-    fetchLists();
+    allListsStore.refresh();
   });
 </script>
 
 <ul>
-  {#each list as item}
+  {#each $allListsStore as item}
     <li>
       <a use:link href="/all/{item.id}">
         <img src={item.img} alt={item.name} />
@@ -45,22 +26,24 @@
     display: flex;
     gap: 0.5rem;
     flex-wrap: wrap;
+    margin: 2rem;
   }
   a {
     display: flex;
     flex-direction: column;
     align-items: center;
-    color: black;
+    color: var(--color-white);
+    padding: 16px;
   }
 
   li {
-    background-color: #dedede;
+    background-color: var(--color-blue);
     width: fit-content;
-    padding: 8px;
     border-radius: 4px;
   }
 
   img {
     max-height: 80px;
+    border-radius: 4px;
   }
 </style>

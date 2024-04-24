@@ -9,7 +9,7 @@
     (a, b) => {
       const rankA = tiers[a[0]].rank;
       const rankB = tiers[b[0]].rank;
-      return rankA - rankB;
+      return rankB - rankA;
     }
   );
 </script>
@@ -26,5 +26,6 @@
     flex-direction: column;
     align-items: stretch;
     height: 100%;
+    flex: 1;
   }
 </style>

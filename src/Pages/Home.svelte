@@ -10,14 +10,14 @@
 
 <TierList list={$tierStore} editable />
 <div class="actions">
-  <button on:click={tierStore.reset}>Nullstill</button>
-  <button on:click={tierStore.save}>Lagre</button>
+  <button class="secondary" on:click={tierStore.reset}>Nullstill</button>
+  <button class="primary" on:click={tierStore.save}>Lagre</button>
 </div>
 
 <style>
   .actions {
-    position: absolute;
-    bottom: 2rem;
-    right: 2rem;
+    display: flex;
+    justify-content: flex-end;
+    padding: 16px;
   }
 </style>

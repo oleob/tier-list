@@ -1,15 +1,15 @@
 export const tiers = {
   S: {
     color: "#ff7f80",
-    rank: 0,
+    rank: 6,
   },
   A: {
     color: "#fdc289 ",
-    rank: 1,
+    rank: 5,
   },
   B: {
     color: "#ffff80",
-    rank: 2,
+    rank: 4,
   },
   C: {
     color: "#7bfd7d",
@@ -17,14 +17,14 @@ export const tiers = {
   },
   D: {
     color: "#7ffffe",
-    rank: 4,
+    rank: 2,
   },
   E: {
     color: "#8281fd",
-    rank: 5,
+    rank: 1,
   },
   F: {
     color: "#fd80fb",
-    rank: 6,
+    rank: 0,
   },
 } as const;

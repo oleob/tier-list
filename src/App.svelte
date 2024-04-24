@@ -19,7 +19,8 @@
 <style>
   main {
     height: 100%;
-    flex: 1;
+    display: flex;
+    flex-direction: column;
   }
   h1 {
     text-align: center;
