@@ -31,7 +31,7 @@ const emptyList: TierList = {
 };
 
 const createTierSTore = () => {
-  const { subscribe, set } = writable<TierList>(emptyList);
+  const { subscribe, set: storeSet } = writable<TierList>(emptyList);
   let tierRef: ReturnType<typeof doc>;
 
   userStore.subscribe((user) => {
@@ -52,7 +52,7 @@ const createTierSTore = () => {
     if (!snapshot.exists()) {
       reset();
     } else {
-      set(snapshot.data().list as TierList);
+      storeSet(snapshot.data().list as TierList);
     }
   };
 
@@ -64,8 +64,18 @@ const createTierSTore = () => {
     contestants.forEach((contestant) => {
       initialList["F"].entries.push(contestant);
     });
-    set(initialList);
+    storeSet(initialList);
     save();
+  };
+
+  let timeoutRef: number;
+
+  const set = (list: TierList) => {
+    storeSet(list);
+    clearTimeout(timeoutRef);
+    timeoutRef = window.setTimeout(() => {
+      save();
+    }, 5000);
   };
 
   return { subscribe, set, save, reset };
