@@ -1,4 +1,11 @@
-<footer>Is only game | Techfolk {new Date().getFullYear()}</footer>
+<footer>
+  <a
+    href="https://www.youtube.com/watch?v=xzpndHtdl9A"
+    target="_blank"
+    referrerpolicy="no-referrer">Is only game</a
+  >
+  | Techfolk {new Date().getFullYear()}
+</footer>
 
 <style>
   footer {
