@@ -43,8 +43,15 @@ const createTierSTore = () => {
 
   const save = async () => {
     const snapshot = get({ subscribe });
-    const { displayName, photoURL } = get(userStore);
-    setDoc(tierRef, { name: displayName, img: photoURL, list: snapshot });
+    const isEmpty =
+      contestants.length !==
+      Object.values(snapshot).reduce((total, tierRow) => {
+        return total + tierRow.entries.length;
+      }, 0);
+    if (!isEmpty) {
+      const { displayName, photoURL } = get(userStore);
+      setDoc(tierRef, { name: displayName, img: photoURL, list: snapshot });
+    }
   };
 
   const connect = async () => {
