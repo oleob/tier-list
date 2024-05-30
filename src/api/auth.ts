@@ -4,7 +4,8 @@ export const initAuth = () => {
   const provider = new GoogleAuthProvider();
   const auth = getAuth();
 
-  auth.onAuthStateChanged((user) => {
+  auth.onAuthStateChanged(async (user) => {
+    await auth.authStateReady();
     if (!user) {
       signInWithRedirect(auth, provider);
     }

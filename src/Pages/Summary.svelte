@@ -1,9 +1,6 @@
 <script lang="ts">
   import { onMount } from "svelte";
-  import { allListsStore, type AllLists } from "../stores/allListsStore";
-  import { contestants } from "../constants.ts/contestants";
-  import type { Tiers } from "../types";
-  import { tiers } from "../constants.ts/tiers";
+  import { allListsStore } from "../stores/allListsStore";
   import { calculate } from "../util/calculate";
 
   onMount(() => {

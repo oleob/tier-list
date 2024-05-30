@@ -34,7 +34,7 @@ const createTierSTore = () => {
   const { subscribe, set: storeSet } = writable<TierList>(emptyList);
   let tierRef: ReturnType<typeof doc>;
 
-  userStore.subscribe((user) => {
+  userStore.subscribe(({ user }) => {
     if (user) {
       tierRef = doc(db, "tier-lists", user.email!);
       connect();
@@ -48,8 +48,9 @@ const createTierSTore = () => {
       Object.values(snapshot).reduce((total, tierRow) => {
         return total + tierRow.entries.length;
       }, 0);
-    if (!isEmpty) {
-      const { displayName, photoURL } = get(userStore);
+    const { user } = get(userStore);
+    if (!isEmpty && user) {
+      const { displayName, photoURL } = user;
       setDoc(tierRef, { name: displayName, img: photoURL, list: snapshot });
     }
   };

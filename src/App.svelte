@@ -8,7 +8,7 @@
 
 <Header />
 <main>
-  {#if $userStore}
+  {#if $userStore.loaded}
     <Router {routes} />
   {:else}
     <h1>Autentiserer...</h1>
