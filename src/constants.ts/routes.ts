@@ -3,6 +3,7 @@ import Home from "../Pages/Home.svelte";
 import Readonly from "../Pages/Readonly.svelte";
 import Summary from "../Pages/Summary.svelte";
 import Teams from "../Pages/Teams.svelte";
+import Malaga from "../Pages/Malaga.svelte";
 
 export const routes = {
   "/": Home,
@@ -10,4 +11,5 @@ export const routes = {
   "/all": AllLists,
   "/summary": Summary,
   "/teams": Teams,
+  "/malaga": Malaga,
 };

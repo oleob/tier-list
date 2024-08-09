@@ -8,6 +8,7 @@
   <a use:link use:active={"/all/*"} href="/all/"> Alle lister</a>
   <a use:link use:active href="/summary/">Standings</a>
   <a use:link use:active href="/teams/">Teams</a>
+  <a use:link use:active href="/malaga/">Malaga</a>
 </header>
 
 <style>

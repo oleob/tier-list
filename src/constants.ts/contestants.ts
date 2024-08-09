@@ -63,4 +63,4 @@ export const contestants = [
     id: "fredrik",
     name: "Fredrik",
   },
-];
+] as const;
