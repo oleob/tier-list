@@ -18,7 +18,7 @@
         <img
           class="image"
           src="/contestants/{contestant?.id}.webp"
-          alt={contestant?.name}
+          alt="{contestant?.name}c"
         />
         <details>
           <summary>Shots</summary>
