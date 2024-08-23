@@ -32,6 +32,7 @@ const initialList: ShotStore = {
   tristan: [],
   vebjorn: [],
   fredrik: [],
+  ask: [],
 };
 
 const createStore = () => {
