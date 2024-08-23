@@ -1,5 +1,5 @@
 import { writable } from "svelte/store";
-import type { contestants } from "../constants.ts/contestants";
+import { contestants } from "../constants.ts/contestants";
 import { userStore } from "./userStore";
 import { addDoc, collection, getDocs } from "firebase/firestore";
 import { db } from "../api/firestore";
@@ -15,25 +15,10 @@ export type Shot = {
 
 type ShotStore = Record<Id, Shot[]>;
 
-const initialList: ShotStore = {
-  christoffer: [],
-  edvin: [],
-  even: [],
-  gaute: [],
-  html: [],
-  jakob: [],
-  marius: [],
-  mathias: [],
-  mattis: [],
-  ole: [],
-  "per-g": [],
-  "per-o": [],
-  sander: [],
-  tristan: [],
-  vebjorn: [],
-  fredrik: [],
-  ask: [],
-};
+const initialList: ShotStore = contestants.reduce((acc, { id }) => {
+  acc[id] = [];
+  return acc;
+}, {} as ShotStore);
 
 const createStore = () => {
   const { subscribe, set: storeSet } = writable<ShotStore>(initialList);
