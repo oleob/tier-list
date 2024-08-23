@@ -63,4 +63,8 @@ export const contestants = [
     id: "fredrik",
     name: "Fredrik",
   },
+  {
+    id: "ask",
+    name: "Ask",
+  },
 ] as const;
