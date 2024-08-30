@@ -84,3 +84,12 @@ export const contestants = [
     name: "August",
   },
 ] as const;
+
+const bots = [
+  {
+    id: "joker",
+    name: "Joker",
+  },
+];
+
+export const winners = [...contestants, ...bots] as const;

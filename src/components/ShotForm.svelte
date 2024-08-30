@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { contestants } from "../constants.ts/contestants";
+  import { contestants, winners } from "../constants.ts/contestants";
   import { malagaStore, type Shot } from "../stores/malagaStore";
   import { userStore } from "../stores/userStore";
 
@@ -27,7 +27,7 @@
   <label>
     Vinner
     <select bind:value={data.winner}>
-      {#each contestants as contestant}
+      {#each winners as contestant}
         <option value={contestant.id}>{contestant.name}</option>
       {/each}
     </select>

@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { contestants } from "../constants.ts/contestants";
+  import { contestants, winners } from "../constants.ts/contestants";
   import { malagaStore } from "../stores/malagaStore";
   import ShotForm from "../components/ShotForm.svelte";
 
@@ -24,7 +24,7 @@
           <summary>Shots</summary>
           <ul>
             {#each entry[1] as shot}
-              {@const winner = contestants.find((c) => c.id === shot.winner)}
+              {@const winner = winners.find((c) => c.id === shot.winner)}
               <li class="match" title={shot.comment}>
                 <img
                   src="/contestants/{contestant?.id}.webp"
